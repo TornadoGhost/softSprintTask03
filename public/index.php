@@ -227,7 +227,7 @@
         crossorigin="anonymous"
 ></script>
 <script src="./js/validation.js"></script>
-<script src="./js/selectsConnect.js"></script>
+<!--<script src="./js/selectsConnect.js"></script>-->
 <script src="./js/addUser.js">
 </script>
 <script src="./js/checkboxes.js"></script>
