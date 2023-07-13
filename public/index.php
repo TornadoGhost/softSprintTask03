@@ -34,19 +34,19 @@
                 </button>
             </div>
             <div class="actions__item">
-                <select class="actions__select" name="actions1">
+                <select class="actions__select" id="actions1" name="actions1">
                     <option class="actions__option" value="" selected>-Please Select-</option>
-                    <option class="actions__option" value="Set active">
+                    <option class="actions__option" value="Set active1">
                         Set active
                     </option>
-                    <option class="actions__option" value="Set not active">
+                    <option class="actions__option" value="Set not active1">
                         Set not active
                     </option>
-                    <option class="actions__option" value="Delete">Delete</option>
+                    <option class="actions__option" value="Delete1">Delete</option>
                 </select>
             </div>
             <div class="actions__item">
-                <button class="actions__button" type="submit">OK</button>
+                <button class="actions__button" id="sendButton1" type="submit">OK</button>
             </div>
         </div>
         <table class="block__table">
