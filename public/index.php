@@ -182,7 +182,7 @@
         </div>
     </div>
 </div>
-<!-- modal confirm -->
+<!-- modal warnings -->
 <div class="modal" id="modalWindow" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
