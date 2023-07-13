@@ -89,7 +89,7 @@
                     <option class="actions__option" value="Set not active2">
                         Set not active
                     </option>
-                    <option class="actions__option" value="Delete">Delete</option>
+                    <option class="actions__option" value="Delete2">Delete</option>
                 </select>
             </div>
             <div class="actions__item">
