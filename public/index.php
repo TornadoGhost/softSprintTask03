@@ -93,7 +93,7 @@
                 </select>
             </div>
             <div class="actions__item">
-                <button class="actions__button" type="submit">OK</button>
+                <button class="actions__button" id="sendButton2"  type="submit">OK</button>
             </div>
         </div>
     </form>
