@@ -7,7 +7,7 @@ $(document).on('change', '.block__table-body-checkbox', function () {
     $('.block__table-body-checkbox').each(function () {
         if (!$(this).prop('checked')) {
             allChecked = false;
-            return false; // эквивалент break в цикле
+            return false;
         }
     });
     $('#mainCheckbox').prop('checked', allChecked);
