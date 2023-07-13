@@ -1,21 +1,14 @@
-const mainCheckbox = document.getElementById('mainCheckbox');
-const checkboxes = document.getElementsByClassName('block__table-body-checkbox');
-
-mainCheckbox.addEventListener('change', function () {
-    for (let i = 0; i < checkboxes.length; i++) {
-        checkboxes[i].checked = mainCheckbox.checked;
-    }
+$(document).on('change', '#mainCheckbox', function () {
+    $('.block__table-body-checkbox').prop('checked', $('#mainCheckbox').prop('checked'));
 });
 
-for (let i = 0; i < checkboxes.length; i++) {
-    checkboxes[i].addEventListener('change', function () {
-        let allChecked = true;
-        for (let j = 0; j < checkboxes.length; j++) {
-            if (!checkboxes[j].checked) {
-                allChecked = false;
-                break;
-            }
+$(document).on('change', '.block__table-body-checkbox', function () {
+    let allChecked = true;
+    $('.block__table-body-checkbox').each(function () {
+        if (!$(this).prop('checked')) {
+            allChecked = false;
+            return false; // эквивалент break в цикле
         }
-        mainCheckbox.checked = allChecked;
     });
-}
+    $('#mainCheckbox').prop('checked', allChecked);
+});
