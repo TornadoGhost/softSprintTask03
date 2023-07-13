@@ -46,7 +46,6 @@ function operation(number) {
                     method: 'post',
                     data: formData,
                     success: function (data) {
-                        $('#message').html(data);
                         if (!data) {
                             return false;
                         }
@@ -64,17 +63,14 @@ function operation(number) {
                 return false;
             });
         }
-        console.log(selectVal);
         if (selectVal === `Set active${number}`) {
             let formData = $("#mainTable").serialize();
             formData += `&sendFrom=button${number}&selectedAction=setActive`;
-            console.log(formData);
             $.ajax({
                 url: '/Controllers/operations.php',
                 method: 'post',
                 data: formData,
                 success: function (data) {
-                    $('#message').html(data);
                     if (!data) {
                         return false;
                     }
@@ -98,7 +94,6 @@ function operation(number) {
                 method: 'post',
                 data: formData,
                 success: function (data) {
-                    $('#message').html(data);
                     if (!data) {
                         return false;
                     }
