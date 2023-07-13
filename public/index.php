@@ -81,12 +81,12 @@
                 </button>
             </div>
             <div class="actions__item">
-                <select class="actions__select" name="actions1">
+                <select class="actions__select" id="actions2" name="actions2">
                     <option class="actions__option" value="" selected>-Please Select-</option>
-                    <option class="actions__option" value="Set active">
+                    <option class="actions__option" value="Set active2">
                         Set active
                     </option>
-                    <option class="actions__option" value="Set not active">
+                    <option class="actions__option" value="Set not active2">
                         Set not active
                     </option>
                     <option class="actions__option" value="Delete">Delete</option>
