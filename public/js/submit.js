@@ -36,6 +36,7 @@ $("#addUserForm").on("submit", function () {
                         `;
                     $("#my-table-body").append(tableRow);
                     $('#addUser').modal('hide');
+                    $('#addUserForm').removeClass().addClass('needs-validation');
                 }
             }
         });
