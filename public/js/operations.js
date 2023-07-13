@@ -1,5 +1,3 @@
-//actions for upper button OK
-
 operation(1);
 operation(2);
 function operation(number) {
