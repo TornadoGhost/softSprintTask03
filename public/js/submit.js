@@ -35,6 +35,7 @@ $("#addUserForm").on("submit", function () {
                             </td>
                         `;
                     $("#my-table-body").append(tableRow);
+                    $('#addUser').modal('hide');
                 }
             }
         });
