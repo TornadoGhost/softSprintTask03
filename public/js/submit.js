@@ -35,6 +35,7 @@ $("#addUserForm").on("submit", function () {
                             </td>
                         `;
                     $("#my-table-body").append(tableRow);
+                    $('#mainCheckbox').prop('checked', false);
                     $('#addUser').modal('hide');
                     $('#addUserForm').removeClass().addClass('needs-validation');
                 }
