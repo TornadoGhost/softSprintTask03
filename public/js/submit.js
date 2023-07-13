@@ -48,7 +48,7 @@ $("#addUserForm").on("submit", function () {
             data: $(this).serialize(),
             success: function (data) {
                 data = JSON.parse(data);
-                if (data.status === 'false') {
+                if (!data.status) {
                     return false;
                 }
 
