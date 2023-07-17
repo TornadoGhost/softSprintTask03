@@ -17,6 +17,13 @@ function operation(number) {
             myObj[element.name] = element.value;
         });
 
+        if(!myObj[`actions${number}`] && !myObj['checkboxId[]']) {
+            modal.find('.modal-body-text').text("Please, choose user and action");
+            modal.modal('show');
+
+            return false
+        }
+
         if (((myObj[`actions${number}`] === `Delete${number}` || myObj[`actions${number}`] === `Set active${number}`|| myObj[`actions${number}`] === `Set not active${number}`) && myObj[`actions${number}`]) && !myObj['checkboxId[]']) {
             modal.find('.modal-body-text').text("Please, choose user before making actions on them");
             modal.modal('show');
