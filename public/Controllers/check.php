@@ -1,11 +1,18 @@
 <?php
 
-function addOrUpdateUser($type){
-    if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['role'])) {
+function addOrUpdateUser($type)
+{
+    if (empty($_POST['firstname'])) {
+        echo error('Firstname was not write.');
+    } else if (empty($_POST['lastname'])) {
+        echo error('Lastname was not write.');
+    } else if (empty($_POST['role'])) {
+        echo error('Role was not choose.');
+    } else {
         if (!empty($_POST['type']) && $_POST['type'] === $type) {
             $user = null;
             $save = new \public\Models\UserModel();
-            if($type === 'add'){
+            if ($type === 'add') {
                 $user = $save->add($_POST);
             } else if ($type === 'update') {
                 $user = $save->update($_POST['id'], $_POST);
@@ -19,11 +26,10 @@ function addOrUpdateUser($type){
             ]];
             echo response($user, $data);
         } else {
-            echo json_encode(array('status' => false, 'error' => ['code' => 404, 'message' => "User was not $type"]));
+            echo error("User was not $type");
         }
-    } else {
-        echo json_encode(array('status' => false, 'error' => ['code' => 404, 'message' => "User was not $type"]));
     }
+
 }
 
 function response($result, $data, $code = 404, $message = 'User not found')
@@ -35,4 +41,9 @@ function response($result, $data, $code = 404, $message = 'User not found')
     } else {
         return json_encode(array('status' => false, 'error' => ['code' => $code, 'message' => $message]));
     }
+}
+
+function error($message, $code = 404)
+{
+    return json_encode(array('status' => false, 'error' => ['code' => $code, 'message' => $message]));
 }
