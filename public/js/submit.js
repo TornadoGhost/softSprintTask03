@@ -69,3 +69,6 @@ $("#addUserForm").on("submit", function () {
 
     return false;
 });
+$('#addUser').on('hidden.bs.modal', function () {
+    $('#addUserForm').removeClass().addClass('needs-validation');
+});
