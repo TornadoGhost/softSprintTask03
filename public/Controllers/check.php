@@ -6,7 +6,7 @@ function addOrUpdateUser($type)
         echo error('Firstname was not write.');
     } else if (empty($_POST['lastname'])) {
         echo error('Lastname was not write.');
-    } else if (empty($_POST['role'])) {
+    } else if (empty($_POST['role_id'])) {
         echo error('Role was not choose.');
     } else {
         if (!empty($_POST['type']) && $_POST['type'] === $type) {
@@ -21,7 +21,7 @@ function addOrUpdateUser($type)
                 'id' => $user['id'],
                 'firstname' => $user['firstname'],
                 'lastname' => $user['lastname'],
-                'role' => $user['role'],
+                'role_id' => $user['role_id'],
                 'status' => $user['status']
             ]];
             echo response($user, $data);
