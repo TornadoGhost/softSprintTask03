@@ -16,7 +16,12 @@ class UserModel
     }
 
     public function all(){
-        $query = "SELECT * FROM users";
+        $query = "
+            SELECT * 
+            FROM users
+            LEFT JOIN roles
+            on users.role_id = roles.id
+            ";
 
         return $this->mysqli->query($query);
     }
