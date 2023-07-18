@@ -5,9 +5,7 @@ include_once './Models/UserModel.php';
 <?php
 $db = new \public\Models\UserModel();
 $result = $db->all();
-if ($result->num_rows > 0) {
-    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    foreach ($data as $row) {
+    foreach ($result as $row) {
         ?>
         <tr class="block__table-body-row">
             <td class="block__table-body-text">
