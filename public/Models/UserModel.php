@@ -1,6 +1,6 @@
 <?php
-
 namespace public\Models;
+
 class UserModel
 {
     const HOSTNAME = 'mysql';
@@ -8,8 +8,8 @@ class UserModel
     const PASSWORD = 'root';
     const DATABASE = 'laravel';
     const PORT = '3306';
-
     protected $mysqli;
+
     public function __construct()
     {
         $this->mysqli = new \mysqli(self::HOSTNAME, self::USERNAME, self::PASSWORD, self::DATABASE, self::PORT);
