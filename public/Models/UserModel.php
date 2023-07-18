@@ -37,7 +37,7 @@ class UserModel
 
         $stmt->execute();
 
-        return ['id' => $stmt->insert_id, 'firstname' => $firstname, 'lastname' => $lastname, 'role' => $role, 'status' => $status];
+        return ['id' => $stmt->insert_id, 'firstname' => $firstname, 'lastname' => $lastname, 'role_id' => $role_id, 'status' => $status];
     }
     public function update($id, $data) {
         $role =(int) $data['role_id'];
@@ -52,7 +52,7 @@ class UserModel
 
         $stmt->execute();
 
-        return ['id' => $id, 'firstname' => $firstname, 'lastname' => $lastname, 'role' => $role, 'status' => $status];
+        return ['id' => $id, 'firstname' => $firstname, 'lastname' => $lastname, 'role_id' => $role_id, 'status' => $status];
     }
 
     public function delete($id) {
