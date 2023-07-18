@@ -150,12 +150,12 @@
                             />
                         </label>
                     </div>
-                    <label for="role" class="form-label">Select role</label>
+                    <label for="role_id" class="form-label">Select role</label>
                     <select
                             class="form-select"
                             aria-label="Default select example"
-                            name="role"
-                            id="role"
+                            name="role_id"
+                            id="role_id"
                             required
                     >
                         <option selected disabled value="">-Please select-</option>
