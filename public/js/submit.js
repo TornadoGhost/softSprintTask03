@@ -17,6 +17,13 @@ $("#addUserForm").on("submit", function () {
                         ? `<div class="block__circle block__circle--green" data-target='status'></div>`
                         : `<div class="block__circle block__circle--gray" data-target='status'></div>`;
 
+                    let role_id = null;
+                    if(data.user.role_id === 1) {
+                        role_id = 'Admin';
+                    } else if(data.user.role_id === 2) {
+                        role_id = 'User';
+                    }
+
                     const tableRow = `
                         <tr class="block__table-body-row">
                             <td class="block__table-body-text">
@@ -51,7 +58,12 @@ $("#addUserForm").on("submit", function () {
                 if (!data.status) {
                     return false;
                 }
-
+                let role_id = null;
+                if(data.user.role_id === 1) {
+                    role_id = 'Admin';
+                } else if(data.user.role_id === 2) {
+                    role_id = 'User';
+                }
                 const row = $(".block__table-body-checkbox[value='" + data.user.id + "']").closest('tr');
                 row.find('td[data-target=name]').text(data.user.firstname + ' ' + data.user.lastname);
                 row.find('td[data-target=role]').text(data.user.role);
