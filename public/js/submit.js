@@ -30,7 +30,7 @@ $("#addUserForm").on("submit", function () {
                                 <input class="block__table-body-checkbox" type="checkbox" name="checkboxId[]" value="${data.user.id}"/>
                             </td>
                             <td class="block__table-body-text block__table-body-text--wider" data-target="name">${data.user.firstname} ${data.user.lastname}</td>
-                            <td class="block__table-body-text" data-target="role">${data.user.role}</td>
+                            <td class="block__table-body-text" data-target="role">${role_id}</td>
                             <td class="block__table-body-text">${userStatus}</td>
                             <td class="block__table-body-text">
                                 <div class="block__actions-buttons">
@@ -66,7 +66,7 @@ $("#addUserForm").on("submit", function () {
                 }
                 const row = $(".block__table-body-checkbox[value='" + data.user.id + "']").closest('tr');
                 row.find('td[data-target=name]').text(data.user.firstname + ' ' + data.user.lastname);
-                row.find('td[data-target=role]').text(data.user.role);
+                row.find('td[data-target=role]').text(role_id);
 
                 const userStatus = data.user.status
                     ? "block__circle block__circle--green"
