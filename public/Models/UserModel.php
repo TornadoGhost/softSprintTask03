@@ -17,7 +17,7 @@ class UserModel
 
     public function all(){
         $query = "
-            SELECT * 
+            SELECT users.id, users.firstname, users.lastname, users.status, roles.name
             FROM users
             LEFT JOIN roles
             on users.role_id = roles.id
