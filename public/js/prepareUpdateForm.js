@@ -15,11 +15,11 @@ $(document).on('click', 'button[data-role=update]', function (){
         $('#status').removeAttr('checked');
     }
     if(role === 'Admin') {
-        $('#role').children("option[value=User]").removeAttr('selected');
-        $('#role').children("option[value=Admin]").prop('selected', 'selected');
+        $('#role_id').children("option[value=2]").removeAttr('selected');
+        $('#role_id').children("option[value=1]").prop('selected', 'selected');
     } else {
-        $('#role').children("option[value=Admin]").removeAttr('selected');
-        $('#role').children("option[value=User]").prop('selected', 'selected');
+        $('#role_id').children("option[value=1]").removeAttr('selected');
+        $('#role_id').children("option[value=2]").prop('selected', 'selected');
     }
     $('#addUserForm button[type=submit]').text('Update');
     $('#addUserForm input[name=id]').attr('value', id);
