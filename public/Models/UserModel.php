@@ -26,12 +26,13 @@ class UserModel
         return mysqli_fetch_all($this->mysqli->query($query), MYSQLI_ASSOC);
     }
     public function add($data){
-        $stmt = $this->mysqli->prepare("INSERT INTO users (firstname, lastname, role, status) VALUES (?,?,?,?)");
-        $stmt->bind_param('sssi',$firstname, $lastname, $role, $status);
+        $role =(int) $data['role_id'];
+        $stmt = $this->mysqli->prepare("INSERT INTO users (firstname, lastname, role_id, status) VALUES (?,?,?,?)");
+        $stmt->bind_param('ssii',$firstname, $lastname, $role_id, $status);
 
         $firstname = $this->validateInput(str_replace(' ', '', $data['firstname']));
         $lastname = $this->validateInput(str_replace(' ', '', $data['lastname']));
-        $role = $this->validateInput($data['role']);
+        $role_id = $role;
         $status = isset($data['status']) ? 1 : 0;
 
         $stmt->execute();
@@ -39,12 +40,14 @@ class UserModel
         return ['id' => $stmt->insert_id, 'firstname' => $firstname, 'lastname' => $lastname, 'role' => $role, 'status' => $status];
     }
     public function update($id, $data) {
-        $stmt = $this->mysqli->prepare("UPDATE users SET firstname = ?, lastname = ?, role = ?, status = ? WHERE id = $id");
-        $stmt->bind_param('sssi', $firstname, $lastname, $role, $status);
+        $role =(int) $data['role_id'];
+        $stmt = $this->mysqli->prepare("UPDATE users SET firstname = ?, lastname = ?, role_id = ?, status = ? WHERE id = $id");
+        $stmt->bind_param('ssii', $firstname, $lastname, $role, $status);
+
 
         $firstname = $this->validateInput(str_replace(' ', '', $data['firstname']));
         $lastname = $this->validateInput(str_replace(' ', '', $data['lastname']));
-        $role = $this->validateInput($data['role']);
+        $role_id = $role;
         $status = isset($data['status']) ? 1 : 0;
 
         $stmt->execute();
