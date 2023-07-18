@@ -23,7 +23,7 @@ class UserModel
             on users.role_id = roles.id
             ";
 
-        return $this->mysqli->query($query);
+        return mysqli_fetch_all($this->mysqli->query($query), MYSQLI_ASSOC);
     }
     public function add($data){
         $stmt = $this->mysqli->prepare("INSERT INTO users (firstname, lastname, role, status) VALUES (?,?,?,?)");
