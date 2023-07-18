@@ -159,8 +159,8 @@
                             required
                     >
                         <option selected disabled value="">-Please select-</option>
-                        <option value="Admin">Admin</option>
-                        <option value="User">User</option>
+                        <option value="1">Admin</option>
+                        <option value="2">User</option>
                     </select>
                     <div class="invalid-feedback">
                         Please select a valid role.
