@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
             <td class="block__table-body-text block__table-body-text--wider" data-target="name">
                 <?= $row['firstname'] . ' ' . $row['lastname'] ?>
             </td>
-            <td class="block__table-body-text" data-target="role"><?= $row['role'] ?></td>
+            <td class="block__table-body-text" data-target="role"><?= $row['name'] ?></td>
             <td class="block__table-body-text">
                 <?php
                 if ($row['status'] == 1) {
