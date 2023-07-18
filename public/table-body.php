@@ -43,7 +43,6 @@ $result = $db->all();
             </td>
         </tr>
         <?php
-    }
 }
 ?>
 </tbody>
