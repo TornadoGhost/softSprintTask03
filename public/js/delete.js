@@ -1,3 +1,6 @@
+$('#userNotExist button.btn').on('click', function () {
+    $('#userNotExist').addClass('is-hidden');
+})
 $(document).on('click', 'button[data-role=delete]', function () {
     const userId = $(this).data('id');
     const userName = $("tr input[value=" + userId + "]").closest('tr').find('td[data-target=name]').text().trim();
