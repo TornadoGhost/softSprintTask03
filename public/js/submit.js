@@ -35,8 +35,8 @@ $("#addUserForm").on("submit", function () {
                             <td class="block__table-body-text">
                                 <div class="block__actions-buttons">
                                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <button class="btn btn-outline-primary" data-role="update" data-id="${data.user.id}" type="button">Edit</button>
-                                <button class="btn btn-outline-primary" data-role="delete" data-id="${data.user.id}" type="button">Delete</button>
+                                    <button class="btn btn-outline-primary" data-role="update"  type="button">Edit</button>
+                                <button class="btn btn-outline-primary" data-role="delete" type="button">Delete</button>
                                 </div>
                                 </div>
                             </td>
