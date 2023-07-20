@@ -103,9 +103,6 @@ p {
 .block__circle--active {
     background-color: green;
 }
-.block__circle--gray {
-    background-color: gray;
-}
 
 .block__actions-buttons {
     display: flex;
