@@ -76,10 +76,9 @@ function operation(number) {
                     }
                     data = JSON.parse(data);
                     data.ids.forEach(element => {
-                        $("tr.block__table-body-row input[value='" + element + "']")
-                            .closest("tr.block__table-body-row")
-                            .find(".block__circle").removeClass('block__circle--gray')
-                            .addClass('block__circle--green');
+                        const row = $("tr.block__table-body-row input[value='" + element + "']").closest("tr.block__table-body-row");
+                        row.find(".block__circle").removeClass('block__circle--gray').addClass('block__circle--green');
+                        row.find('input[name=status]').val(1);
                     });
                 }
             });
@@ -99,10 +98,9 @@ function operation(number) {
                     }
                     data = JSON.parse(data);
                     data.ids.forEach(element => {
-                        $("tr.block__table-body-row input[value='" + element + "']")
-                            .closest("tr.block__table-body-row")
-                            .find(".block__circle").removeClass('block__circle--green')
-                            .addClass('block__circle--gray');
+                        const row = $("tr.block__table-body-row input[value='" + element + "']").closest("tr.block__table-body-row")
+                        row.find(".block__circle").removeClass('block__circle--green').addClass('block__circle--gray');
+                        row.find('input[name=status]').val(0);
                     });
                 }
             });
