@@ -1,5 +1,5 @@
 <?php
-
+include_once '../Models/UserModel.php';
 function addOrUpdateUser($type)
 {
     if (empty($_POST['firstname'])) {
