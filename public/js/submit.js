@@ -25,7 +25,7 @@ $("#addUserForm").on("submit", function () {
                     }
 
                     const tableRow = `
-                        <tr class="block__table-body-row">
+                        <tr class="block__table-body-row" data-id="${data.user.id}"">
                             <td class="block__table-body-text">
                                 <input class="block__table-body-checkbox" type="checkbox" name="checkboxId[]" value="${data.user.id}"/>
                             </td>
