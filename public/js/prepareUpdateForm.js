@@ -1,12 +1,12 @@
 $(document).on('click', 'button[data-role=update]', function (){
     $('#addUserForm .alert-danger').remove();
-    const id = $(this).data('id');
-    const select = $("tr.block__table-body-row input[value='" + id + "']").closest("tr.block__table-body-row");
-    const name = select.children("td[data-target=name]").text().trim();
+    const row = $(this).parents('.block__table-body-row');
+    const id = row.data('id');
+    const name = row.find("td[data-target='name']").text().trim();
+    const role = row.find("td[data-target='role']").text();
+    const status = row.find("td[data-target='status'] input[name='status']").val();
     const firstname = name.split(" ")[0];
     const lastname = name.split(" ")[1];
-    const role = select.children("td[data-target=role]").text();
-    const status = select.find("input[name=status]").val();
 
     $('#firstname').val(firstname);
     $('#lastname').val(lastname);
