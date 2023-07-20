@@ -1,6 +1,6 @@
 $("#addUserForm").on("submit", function () {
-
-    const input = $('#addUserForm').closest('div').find('input[name=type]').val();
+    const form = $('#addUserForm');
+    const input = form.closest('div').find('input[name=type]').val();
 
     if (input === 'add') {
         $.ajax({
