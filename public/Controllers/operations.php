@@ -24,7 +24,16 @@ function action($method)
 {
     $ids = [];
     $mysql = new \public\Models\UserModel();
-    foreach ($_POST['checkboxId'] as $id) {
+    $checlboxIds = $_POST['checkboxId'];
+    //check all user on existence
+    foreach ($checlboxIds as $id) {
+        if(empty(userExists($id))){
+            echo error('One of users is not exist.');
+            die();
+        }
+    }
+    //if all users exist then deleting
+    foreach ($checlboxIds as $id){
         $res = $mysql->$method($id);
         if (!$res) {
             echo json_encode(['status' => false, 'error' => ['code' => 404, 'message' => 'Something went wrong']]);
