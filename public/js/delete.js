@@ -12,7 +12,7 @@ $(document).on('click', 'button[data-role=delete]', function () {
 
     modal.modal('show');
     modal.find('button[data-role=delete]').on('click', function () {
-        const $dataSend = {id: userId};
+        const $dataSend = {id: userId, name: userName};
         $.ajax({
             url: '/Controllers/delete.php',
             method: 'post',
