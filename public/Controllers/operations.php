@@ -36,7 +36,7 @@ function action($method)
     foreach ($checlboxIds as $id){
         $res = $mysql->$method($id);
         if (!$res) {
-            echo json_encode(['status' => false, 'error' => ['code' => 404, 'message' => 'Something went wrong']]);
+            echo error('Something went wrong');
             die();
         }
         $ids[] = $id;
