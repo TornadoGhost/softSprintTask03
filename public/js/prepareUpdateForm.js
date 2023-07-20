@@ -11,9 +11,9 @@ $(document).on('click', 'button[data-role=update]', function (){
     $('#firstname').val(firstname);
     $('#lastname').val(lastname);
     if(status === '1') {
-        $('#status').attr('checked', 'checked');
-    } else {
-        $('#status').removeAttr('checked');
+        $('#status').prop('checked', true);
+    } else if(status === '0'){
+        $('#status').prop('checked', false);
     }
     if(role === 'Admin') {
         $('#role_id').children("option[value=2]").removeAttr('selected');
