@@ -2,9 +2,10 @@ $('#userNotExist button.btn').on('click', function () {
     $('#userNotExist').addClass('is-hidden');
 })
 $(document).on('click', '.block__table-body-text button[data-role=delete]', function () {
-    const userId = $(this).data('id');
-    const userName = $("tr input[value=" + userId + "]").closest('tr').find('td[data-target=name]').text().trim();
     const modal = $('#modalWindow');
+    const row = $(this).parents('.block__table-body-row');
+    const userId = row.data('id');
+    const userName = row.find('td[data-target=name]').text().trim();
 
     modal.find('.modal-title').text("Delete Confirmation");
     modal.find('.modal-body-text').text("Are you sure you want to delete " + userName + "?");
@@ -28,9 +29,7 @@ $(document).on('click', '.block__table-body-text button[data-role=delete]', func
                     $('#userNotExist').removeClass('is-hidden');
                     return false;
                 }
-                $(".block__table-body-row input[value='" + data.id + "']")
-                    .closest("tr.block__table-body-row")
-                    .remove();
+                row.remove();
                 modal.modal('hide');
                 modal.find('button[data-role=delete]').removeAttr('data-role');
             }
