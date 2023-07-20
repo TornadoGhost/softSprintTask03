@@ -15,6 +15,15 @@ class UserModel
         $this->mysqli = new \mysqli(self::HOSTNAME, self::USERNAME, self::PASSWORD, self::DATABASE, self::PORT);
     }
 
+    public function getById($id){
+        $query = "
+            SELECT *
+            FROM users
+            WHERE id = $id
+            ";
+        return mysqli_fetch_all($this->mysqli->query($query), MYSQLI_ASSOC);
+    }
+
     public function all(){
         $query = "
             SELECT users.id, users.firstname, users.lastname, users.status, roles.name
