@@ -79,6 +79,7 @@ $("#addUserForm").on("submit", function () {
 
                 row.find('td[data-target=name]').text(data.user.firstname + ' ' + data.user.lastname);
                 row.find('td[data-target=role]').text(role_id);
+                row.find('td[data-target=status] input[name=status]').val(data.user.status);
 
                 const userStatus = data.user.status
                     ? "block__circle block__circle--active"
