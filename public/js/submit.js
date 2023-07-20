@@ -31,7 +31,7 @@ $("#addUserForm").on("submit", function () {
                             </td>
                             <td class="block__table-body-text block__table-body-text--wider" data-target="name">${data.user.firstname} ${data.user.lastname}</td>
                             <td class="block__table-body-text" data-target="role">${role_id}</td>
-                            <td class="block__table-body-text">${userStatus}</td>
+                            <td class="block__table-body-text" data-target='status'>${userStatus}</td>
                             <td class="block__table-body-text">
                                 <div class="block__actions-buttons">
                                 <div class="btn-group" role="group" aria-label="Basic outlined example">
