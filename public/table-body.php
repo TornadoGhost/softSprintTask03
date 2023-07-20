@@ -7,8 +7,7 @@ $db = new \public\Models\UserModel();
 $result = $db->all();
     foreach ($result as $row) {
         ?>
-<!--        <tr class="block__table-body-row" data-id="--><?php //= $row['id'] ?><!--">-->
-            <tr class="block__table-body-row">
+            <tr class="block__table-body-row" data-id="<?= $row['id'] ?>">
             <td class="block__table-body-text">
                 <input class="block__table-body-checkbox" type="checkbox" name="checkboxId[]"
                        value="<?= $row['id'] ?>"/>
