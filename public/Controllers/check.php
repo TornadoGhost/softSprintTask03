@@ -47,3 +47,8 @@ function error($message, $code = 404)
 {
     return json_encode(array('status' => false, 'error' => ['code' => $code, 'message' => $message]));
 }
+
+function userExists($id) {
+    $user = new public\Models\UserModel();
+    return $user->getById($id);
+}
