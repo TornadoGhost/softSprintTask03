@@ -85,13 +85,9 @@ $("#addUserForm").on("submit", function () {
                     ? "block__circle block__circle--active"
                     : "block__circle";
 
-
-                $('#addUser').modal('hide');
-
-                $('#addUserForm').removeClass().addClass('needs-validation');
-
                 row.find('.block__circle').removeClass().addClass(userStatus);
-                row.find('.block__circle[data-target=status] input[value]').removeAttr('value').attr('value', data.user.status);
+                form.removeClass().addClass('needs-validation');
+                $('#addUser').modal('hide');
             }
         });
     }
