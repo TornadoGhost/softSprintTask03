@@ -19,6 +19,15 @@ $(document).on('click', 'button[data-role=delete]', function () {
             data: $dataSend,
             success: function (data) {
                 data = JSON.parse(data);
+                if (!data.status) {
+                    const text = `<p>${data.error.message}</p>`;
+                    const textBody = $('#userNotExist .modal-body p');
+                    if (textBody.length === 0) {
+                        $('#userNotExist .modal-body').append(text);
+                    }
+                    $('#userNotExist').removeClass('is-hidden');
+                    return false;
+                }
                 $(".block__table-body-row input[value='" + data.id + "']")
                     .closest("tr.block__table-body-row")
                     .remove();
