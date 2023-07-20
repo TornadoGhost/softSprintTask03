@@ -1,4 +1,8 @@
 <?php
 include_once 'check.php';
 
-addOrUpdateUser('update');
+if(!empty(userExists($_POST['id']))){
+    addOrUpdateUser('update');
+} else {
+    echo error('User does not exist.');
+}
