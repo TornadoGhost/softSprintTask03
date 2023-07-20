@@ -14,13 +14,13 @@ $("#addUserForm").on("submit", function () {
                 }
                 if (data.status) {
                     const userStatus = data.user.status
-                        ? `<div class="block__circle block__circle--green" data-target='status'><input type="hidden" name="status" value="1"></div>`
-                        : `<div class="block__circle block__circle--gray" data-target='status'><input type="hidden" name="status" value="0"></div>`;
+                        ? `<div class="block__circle block__circle--active" data-target='status'><input type="hidden" name="status" value="1"></div>`
+                        : `<div class="block__circle" data-target='status'><input type="hidden" name="status" value="0"></div>`;
 
                     let role_id = null;
-                    if(data.user.role_id === 1) {
+                    if (data.user.role_id === 1) {
                         role_id = 'Admin';
-                    } else if(data.user.role_id === 2) {
+                    } else if (data.user.role_id === 2) {
                         role_id = 'User';
                     }
 
