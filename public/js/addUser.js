@@ -1,6 +1,6 @@
 $("button[data-role=add]").on('click', function () {
-    $('#addUserForm .alert-danger').remove();
     const form = $('#addUserForm').closest('div');
+    $('#addUserForm .alert-danger').remove();
     form.find('input').val('');
     form.find('input[name=status]').prop('checked', false);
     form.find('input[type=checkbox]').removeAttr('checked');
