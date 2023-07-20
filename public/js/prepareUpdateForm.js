@@ -1,4 +1,5 @@
 $(document).on('click', 'button[data-role=update]', function (){
+    $('#addUserForm .alert-danger').remove();
     const id = $(this).data('id');
     const select = $("tr.block__table-body-row input[value='" + id + "']").closest("tr.block__table-body-row");
     const name = select.children("td[data-target=name]").text().trim();
