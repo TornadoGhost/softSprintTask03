@@ -11,12 +11,12 @@ $(document).on('click', 'button[data-role=delete]', function () {
     modal.find('.btn-primary').text('Delete').attr('data-role', 'delete');
 
     modal.modal('show');
-    modal.find('button[data-role=delete]').on('click', function () {
-        const $dataSend = {id: userId, name: userName};
+    modal.find('button[data-role=delete]').off('click').on('click', function () {
+        const dataSend = {id: userId, name: userName};
         $.ajax({
             url: '/Controllers/delete.php',
             method: 'post',
-            data: $dataSend,
+            data: dataSend,
             success: function (data) {
                 data = JSON.parse(data);
                 if (!data.status) {
