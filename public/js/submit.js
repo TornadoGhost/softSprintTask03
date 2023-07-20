@@ -56,6 +56,15 @@ $("#addUserForm").on("submit", function () {
             success: function (data) {
                 data = JSON.parse(data);
                 if (!data.status) {
+                    const message =
+                        `<div class="alert alert-danger" role="alert">
+                            ${data.error.message}
+                        </div>`;
+                    const alert = $('#addUserForm .alert-danger');
+                    if (alert.length === 0) {
+                        $('#addUserForm .modal-body').prepend(message);
+                    }
+                    $('#addUserForm').removeClass().addClass('needs-validation');
                     return false;
                 }
                 let role_id = null;
