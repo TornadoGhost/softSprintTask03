@@ -16,7 +16,7 @@ $result = $db->all();
                 <?= $row['firstname'] . ' ' . $row['lastname'] ?>
             </td>
             <td class="block__table-body-text" data-target="role"><?= $row['name'] ?></td>
-            <td class="block__table-body-text">
+            <td class="block__table-body-text" data-target='status'>
                 <?php
                 if ($row['status'] == 1) {
                     echo "<div class='block__circle block__circle--active' data-target='status'><input type='hidden' name='status' value='1'></div>";
