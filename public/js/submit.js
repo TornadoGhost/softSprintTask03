@@ -68,9 +68,9 @@ $("#addUserForm").on("submit", function () {
                     return false;
                 }
                 let role_id = null;
-                if(data.user.role_id === 1) {
+                if (data.user.role_id === 1) {
                     role_id = 'Admin';
-                } else if(data.user.role_id === 2) {
+                } else if (data.user.role_id === 2) {
                     role_id = 'User';
                 }
                 const row = $(".block__table-body-checkbox[value='" + data.user.id + "']").closest('tr');
@@ -78,10 +78,12 @@ $("#addUserForm").on("submit", function () {
                 row.find('td[data-target=role]').text(role_id);
 
                 const userStatus = data.user.status
-                    ? "block__circle block__circle--green"
-                    : "block__circle block__circle--gray";
+                    ? "block__circle block__circle--active"
+                    : "block__circle";
+
 
                 $('#addUser').modal('hide');
+
                 $('#addUserForm').removeClass().addClass('needs-validation');
 
                 row.find('.block__circle').removeClass().addClass(userStatus);
