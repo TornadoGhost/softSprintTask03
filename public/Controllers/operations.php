@@ -1,5 +1,6 @@
 <?php
 include_once '../Models/UserModel.php';
+include_once 'check.php';
 
 dataProcessing(1);
 dataProcessing(2);
