@@ -39,7 +39,7 @@ function response($result, $data, $code = 404, $message = 'User not found')
         $array = array_merge($array, $data);
         return json_encode($array);
     } else {
-        return json_encode(array('status' => false, 'error' => ['code' => $code, 'message' => $message]));
+        return error($message, $code);
     }
 }
 
