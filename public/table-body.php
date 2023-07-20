@@ -19,7 +19,7 @@ $result = $db->all();
             <td class="block__table-body-text" data-target='status'>
                 <?php
                 if ($row['status'] == 1) {
-                    echo "<div class='block__circle block__circle--active' data-target='status'><input type='hidden' name='status' value='1'></div>";
+                    echo "<div class='block__circle block__circle--active' ><input type='hidden' name='status' value='1'></div>";
                 } else if ($row['status'] == 0) {
                     echo "<div class='block__circle' data-target='status'><input type='hidden' name='status' value='0'></div>";
                 }
