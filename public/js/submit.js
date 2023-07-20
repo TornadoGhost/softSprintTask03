@@ -68,12 +68,15 @@ $("#addUserForm").on("submit", function () {
                     return false;
                 }
                 let role_id = null;
+
                 if (data.user.role_id === 1) {
                     role_id = 'Admin';
                 } else if (data.user.role_id === 2) {
                     role_id = 'User';
                 }
-                const row = $(".block__table-body-checkbox[value='" + data.user.id + "']").closest('tr');
+
+                const row = $("tr.block__table-body-row[data-id="+ data.user.id +"]")
+
                 row.find('td[data-target=name]').text(data.user.firstname + ' ' + data.user.lastname);
                 row.find('td[data-target=role]').text(role_id);
 
