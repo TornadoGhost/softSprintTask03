@@ -30,12 +30,10 @@ $result = $db->all();
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
                         <button class="btn btn-outline-primary"
                                 data-role="update"
-                                data-id="<?= $row['id'] ?>"
                                 type="button">Edit
                         </button>
                         <button class="btn btn-outline-primary"
                                 data-role="delete"
-                                data-id="<?= $row['id'] ?>"
                                 type="button">Delete
                         </button>
                     </div>
