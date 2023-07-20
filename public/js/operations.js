@@ -17,7 +17,7 @@ function operation(number) {
             myObj[element.name] = element.value;
         });
 
-        if (((!myObj[`actions${number}`] || myObj[`actions${number}`] === `Delete${number}` || myObj[`actions${number}`] === `Set active${number}`|| myObj[`actions${number}`] === `Set not active${number}`)) && !myObj['checkboxId[]']) {
+        if (((!myObj[`actions${number}`] || myObj[`actions${number}`] === `Delete${number}` || myObj[`actions${number}`] === `Set active${number}` || myObj[`actions${number}`] === `Set not active${number}`)) && !myObj['checkboxId[]']) {
             modal.find('.modal-body-text').text("Please, choose user before making actions on them");
             modal.modal('show');
 
@@ -50,7 +50,14 @@ function operation(number) {
                             return false;
                         }
                         data = JSON.parse(data);
-                        if (data.status) {
+                        if (!data.status) {
+                            const text = `<p>${data.error.message}</p>`;
+                            const textBody = $('#userNotExist .modal-body p');
+                            if (textBody.length === 0) {
+                                $('#userNotExist .modal-body').append(text);
+                            }
+                            $('#userNotExist').removeClass('is-hidden');
+                        } else {
                             data.ids.forEach(element => {
                                 $("tr.block__table-body-row input[value='" + element + "']")
                                     .closest("tr.block__table-body-row")
@@ -75,11 +82,20 @@ function operation(number) {
                         return false;
                     }
                     data = JSON.parse(data);
-                    data.ids.forEach(element => {
-                        const row = $("tr.block__table-body-row input[value='" + element + "']").closest("tr.block__table-body-row");
-                        row.find(".block__circle").removeClass('block__circle--gray').addClass('block__circle--green');
-                        row.find('input[name=status]').val(1);
-                    });
+                    if (!data.status) {
+                        const text = `<p>${data.error.message}</p>`;
+                        const textBody = $('#userNotExist .modal-body p');
+                        if (textBody.length === 0) {
+                            $('#userNotExist .modal-body').append(text);
+                        }
+                        $('#userNotExist').removeClass('is-hidden');
+                    } else {
+                        data.ids.forEach(element => {
+                            const row = $("tr.block__table-body-row input[value='" + element + "']").closest("tr.block__table-body-row");
+                            row.find(".block__circle").addClass('block__circle--active');
+                            row.find('input[name=status]').val(1);
+                        });
+                    }
                 }
             });
             return false;
@@ -97,11 +113,20 @@ function operation(number) {
                         return false;
                     }
                     data = JSON.parse(data);
-                    data.ids.forEach(element => {
-                        const row = $("tr.block__table-body-row input[value='" + element + "']").closest("tr.block__table-body-row")
-                        row.find(".block__circle").removeClass('block__circle--green').addClass('block__circle--gray');
-                        row.find('input[name=status]').val(0);
-                    });
+                    if (!data.status) {
+                        const text = `<p>${data.error.message}</p>`;
+                        const textBody = $('#userNotExist .modal-body p');
+                        if (textBody.length === 0) {
+                            $('#userNotExist .modal-body').append(text);
+                        }
+                        $('#userNotExist').removeClass('is-hidden');
+                    } else {
+                        data.ids.forEach(element => {
+                            const row = $("tr.block__table-body-row input[value='" + element + "']").closest("tr.block__table-body-row")
+                            row.find(".block__circle").removeClass('block__circle--active');
+                            row.find('input[name=status]').val(0);
+                        });
+                    }
                 }
             });
             return false;
