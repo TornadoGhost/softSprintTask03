@@ -146,4 +146,25 @@ p {
     padding: 10px;
     font-size: 14px;
     font-weight: 400;
-}/*# sourceMappingURL=main.css.map */
+}
+/*styles for validation forms*/
+.was-validated .form-control:valid:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+}
+.was-validated .form-control:valid,
+.was-validated .form-select:valid:not([multiple]):not([size]), .was-validated .form-select:valid:not([multiple])[size="1"]{
+    background-image: none;
+    border-color: #ced4da;
+}
+.was-validated .form-check-input:valid {
+    border-color: #ced4da;
+}
+.was-validated .form-check-input:valid:checked {
+    border-color: #0d6efd;
+    background-color: #0d6efd;
+}
+.was-validated .form-check-input:valid:focus,
+.was-validated .form-select:valid:focus{
+    box-shadow: none;
+}
