@@ -19,7 +19,7 @@ $(document).on('click', '.block__table-body-text button[data-role=delete]', func
             success: function (data) {
                 data = JSON.parse(data);
                 if (!data.status) {
-                    console.log('tut');
+                    modal.find('.modal-title').text("Error");
                     modal.find('.modal-body-text').text(`${data.error.message}`);
                     modal.modal('show');
                     $(document).off('click', '#modalWindow button[data-role=delete]');
