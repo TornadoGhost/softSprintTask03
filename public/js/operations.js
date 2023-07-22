@@ -51,12 +51,8 @@ function operation(number) {
                         }
                         data = JSON.parse(data);
                         if (!data.status) {
-                            const text = `<p>${data.error.message}</p>`;
-                            const textBody = $('#userNotExist .modal-body p');
-                            if (textBody.length === 0) {
-                                $('#userNotExist .modal-body').append(text);
-                            }
-                            $('#userNotExist').removeClass('is-hidden');
+                            modal.find('.modal-body-text').text(`${data.error.message}`);
+                            modal.modal('show');
                         } else {
                             data.ids.forEach(element => {
                                 $("tr.block__table-body-row input[value='" + element + "']")
@@ -83,12 +79,8 @@ function operation(number) {
                     }
                     data = JSON.parse(data);
                     if (!data.status) {
-                        const text = `<p>${data.error.message}</p>`;
-                        const textBody = $('#userNotExist .modal-body p');
-                        if (textBody.length === 0) {
-                            $('#userNotExist .modal-body').append(text);
-                        }
-                        $('#userNotExist').removeClass('is-hidden');
+                        modal.find('.modal-body-text').text(`${data.error.message}`);
+                        modal.modal('show');
                     } else {
                         data.ids.forEach(element => {
                             const row = $("tr.block__table-body-row input[value='" + element + "']").closest("tr.block__table-body-row");
@@ -114,12 +106,8 @@ function operation(number) {
                     }
                     data = JSON.parse(data);
                     if (!data.status) {
-                        const text = `<p>${data.error.message}</p>`;
-                        const textBody = $('#userNotExist .modal-body p');
-                        if (textBody.length === 0) {
-                            $('#userNotExist .modal-body').append(text);
-                        }
-                        $('#userNotExist').removeClass('is-hidden');
+                        modal.find('.modal-body-text').text(`${data.error.message}`);
+                        modal.modal('show');
                     } else {
                         data.ids.forEach(element => {
                             const row = $("tr.block__table-body-row input[value='" + element + "']").closest("tr.block__table-body-row")
