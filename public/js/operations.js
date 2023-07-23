@@ -10,7 +10,7 @@ function operation(number) {
         const modal = $('#modalWindow');
         modal.find('.modal-title').text("Warning");
         modal.find('button[data-role=delete]').removeAttr('data-role');
-        modal.find('.btn-primary').text('Got it!');
+        modal.find('.modal-footer').empty().html('<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>');
 
         const myObj = {};
         data.forEach(function (element) {
@@ -36,7 +36,13 @@ function operation(number) {
         }
 
         if (selectVal === `Delete${number}`) {
-            $('#confirmModal').modal('show');
+            modal.find('.modal-title').text('Delete Confirmation');
+            modal.find('.modal-body-text').text('Are you sure that you want to delete data?');
+            modal.find('.modal-footer').empty().html(
+                '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>' +
+                '<button id="confirmDeleteButton" type="button" class="btn btn-danger">Delete</button>');
+            modal.modal('show');
+
 
             $("#confirmDeleteButton").on('click', function () {
                 let formData = $("#mainTable").serialize();
@@ -51,7 +57,9 @@ function operation(number) {
                         }
                         data = JSON.parse(data);
                         if (!data.status) {
+                            modal.find('.modal-title').text('Error');
                             modal.find('.modal-body-text').text(`${data.error.message}`);
+                            modal.find('.modal-footer').empty().html('<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>');
                             modal.modal('show');
                         } else {
                             data.ids.forEach(element => {
@@ -62,7 +70,7 @@ function operation(number) {
                         }
                     }
                 });
-                $(`#confirmModal`).modal("hide");
+                modal.modal('hide');
                 return false;
             });
         }
